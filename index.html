@@ -8,415 +8,907 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-    background:#080808;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+  background:#080808;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-/* ===== HEADER ===== */
-
+/* HEADER */
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:#050505;
-    padding:15px 5%;
-    display:flex;
-    align-items:center;
-    gap:25px;
-    border-bottom:1px solid #222;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(5,5,5,.96);
+  border-bottom:1px solid #222;
+  padding:15px 5%;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:25px;
 }
 
 .logo{
-    color:#e50914;
-    font-size:28px;
-    font-weight:900;
+  color:#e50914;
+  font-size:30px;
+  font-weight:900;
 }
 
 nav{
-    display:flex;
-    gap:18px;
+  display:flex;
+  gap:20px;
 }
 
 nav a{
-    color:#fff;
-    text-decoration:none;
-    font-size:14px;
+  color:#fff;
+  text-decoration:none;
+  font-size:15px;
 }
 
 nav a:hover{
-    color:#e50914;
+  color:#e50914;
 }
 
 .search{
-    margin-left:auto;
+  margin-left:auto;
 }
 
 .search input{
-    width:220px;
-    padding:10px 14px;
-    border:1px solid #444;
-    border-radius:5px;
-    background:#181818;
-    color:#fff;
-    outline:none;
+  width:230px;
+  padding:11px 15px;
+  background:#191919;
+  color:#fff;
+  border:1px solid #444;
+  border-radius:5px;
+  outline:none;
 }
 
-/* ===== HERO ===== */
-
+/* HERO */
 .hero{
-    min-height:70vh;
-    display:flex;
-    align-items:flex-end;
-    padding:70px 5%;
+  min-height:70vh;
+  display:flex;
+  align-items:flex-end;
+  padding:60px 5%;
 
-    background:
-    linear-gradient(to top,#080808 5%,transparent 75%),
-    linear-gradient(to right,#080808 5%,transparent 80%),
-    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=80")
-    center/cover no-repeat;
+  background:
+  linear-gradient(to top,#080808 4%,transparent 70%),
+  linear-gradient(to right,#080808 5%,transparent 80%),
+  url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=85")
+  center/cover no-repeat;
 }
 
 .hero-content{
-    max-width:600px;
+  max-width:650px;
+}
+
+.badge{
+  display:inline-block;
+  background:#e50914;
+  padding:6px 12px;
+  border-radius:4px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:15px;
 }
 
 .hero h1{
-    font-size:60px;
-    color:#e50914;
-    margin-bottom:15px;
+  font-size:58px;
+  color:#fff;
+  margin-bottom:12px;
 }
 
 .hero p{
-    color:#ddd;
-    font-size:17px;
-    line-height:1.6;
-    margin-bottom:22px;
+  color:#ddd;
+  font-size:17px;
+  line-height:1.6;
+  margin-bottom:22px;
 }
 
 .btn{
-    padding:12px 22px;
-    border:none;
-    border-radius:5px;
-    font-weight:bold;
-    cursor:pointer;
+  border:0;
+  padding:12px 22px;
+  border-radius:5px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:14px;
 }
 
 .watch{
-    background:#e50914;
-    color:#fff;
+  background:#e50914;
+  color:white;
 }
 
 .info{
-    background:#fff;
-    color:#000;
-    margin-left:8px;
+  background:white;
+  color:#111;
+  margin-left:8px;
 }
 
-/* ===== SECTION ===== */
-
+/* SECTION */
 .section{
-    padding:35px 5%;
+  padding:35px 5%;
 }
 
-.section h2{
-    margin-bottom:20px;
-    font-size:24px;
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
 }
 
-/* ===== CONTENT GRID ===== */
+.section-title h2{
+  font-size:25px;
+}
 
+.count{
+  color:#888;
+  font-size:13px;
+}
+
+/* FILTER */
+.filters{
+  display:flex;
+  gap:10px;
+  margin-bottom:25px;
+  overflow-x:auto;
+}
+
+.filter{
+  border:1px solid #444;
+  background:#181818;
+  color:#fff;
+  padding:9px 17px;
+  border-radius:20px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.filter.active,
+.filter:hover{
+  background:#e50914;
+  border-color:#e50914;
+}
+
+/* GRID */
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
-    gap:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+  gap:18px;
 }
 
 .card{
-    background:#151515;
-    border-radius:7px;
-    overflow:hidden;
-    transition:.3s;
+  background:#151515;
+  border-radius:7px;
+  overflow:hidden;
+  transition:.3s;
 }
 
 .card:hover{
-    transform:scale(1.04);
+  transform:translateY(-5px);
+  box-shadow:0 8px 25px rgba(0,0,0,.5);
 }
 
-.card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
+.poster{
+  position:relative;
+}
+
+.poster img{
+  width:100%;
+  height:250px;
+  display:block;
+  object-fit:cover;
+}
+
+.year{
+  position:absolute;
+  top:8px;
+  right:8px;
+  background:rgba(0,0,0,.8);
+  padding:5px 7px;
+  border-radius:4px;
+  font-size:11px;
 }
 
 .card-info{
-    padding:12px;
+  padding:12px;
 }
 
 .title{
-    font-size:16px;
-    font-weight:bold;
-    margin-bottom:7px;
+  font-size:16px;
+  font-weight:bold;
+  margin-bottom:7px;
 }
 
 .meta{
-    color:#999;
-    font-size:12px;
+  color:#999;
+  font-size:12px;
 }
 
-.card button{
-    width:100%;
-    margin-top:10px;
-    padding:9px;
-    border:0;
-    border-radius:4px;
-    background:#e50914;
-    color:#fff;
-    cursor:pointer;
+.card-buttons{
+  display:flex;
+  gap:7px;
+  margin-top:12px;
 }
 
-/* ===== PLAYER ===== */
+.card-buttons button{
+  flex:1;
+  border:0;
+  padding:8px 5px;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:bold;
+}
 
+.play{
+  background:#e50914;
+  color:#fff;
+}
+
+.details{
+  background:#333;
+  color:#fff;
+}
+
+/* EMPTY */
+.empty{
+  display:none;
+  text-align:center;
+  color:#888;
+  padding:50px 10px;
+}
+
+/* MODAL */
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:2000;
-    background:rgba(0,0,0,.95);
-    padding:20px;
-    overflow:auto;
+  display:none;
+  position:fixed;
+  z-index:3000;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  padding:20px;
+  overflow:auto;
 }
 
 .modal-box{
-    max-width:900px;
-    margin:40px auto;
-    background:#111;
-    padding:20px;
-    border-radius:8px;
+  max-width:900px;
+  margin:30px auto;
+  background:#151515;
+  border-radius:8px;
+  padding:20px;
 }
 
 .close{
-    float:right;
-    font-size:28px;
-    cursor:pointer;
+  float:right;
+  font-size:28px;
+  cursor:pointer;
+  color:#aaa;
+}
+
+.close:hover{
+  color:#fff;
+}
+
+.modal h2{
+  margin-bottom:10px;
+}
+
+.modal p{
+  color:#bbb;
+  line-height:1.6;
 }
 
 video{
-    width:100%;
-    margin-top:20px;
-    background:#000;
+  width:100%;
+  margin-top:20px;
+  background:#000;
+  border-radius:5px;
 }
 
-/* ===== FOOTER ===== */
-
+/* FOOTER */
 footer{
-    text-align:center;
-    padding:40px 5%;
-    margin-top:30px;
-    border-top:1px solid #222;
-    color:#888;
+  border-top:1px solid #222;
+  text-align:center;
+  padding:40px 5%;
+  margin-top:30px;
+  color:#888;
 }
 
-/* ===== MOBILE ===== */
+.footer-logo{
+  color:#e50914;
+  font-size:25px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
 
+/* MOBILE */
 @media(max-width:700px){
 
-    header{
-        flex-wrap:wrap;
-        gap:12px;
-    }
+  .topbar{
+    flex-wrap:wrap;
+    gap:12px;
+  }
 
-    nav{
-        width:100%;
-        overflow-x:auto;
-        order:3;
-        padding-bottom:5px;
-    }
+  nav{
+    order:3;
+    width:100%;
+    overflow-x:auto;
+    padding-bottom:3px;
+  }
 
-    .search{
-        width:100%;
-        margin-left:0;
-    }
+  .search{
+    width:100%;
+    margin-left:0;
+  }
 
-    .search input{
-        width:100%;
-    }
+  .search input{
+    width:100%;
+  }
 
-    .hero{
-        min-height:65vh;
-        padding:50px 5%;
-    }
+  .hero{
+    min-height:62vh;
+    padding:45px 5%;
+  }
 
-    .hero h1{
-        font-size:42px;
-    }
+  .hero h1{
+    font-size:42px;
+  }
 
-    .hero p{
-        font-size:15px;
-    }
+  .hero p{
+    font-size:15px;
+  }
 
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
-    }
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
 
-    .card img{
-        height:220px;
-    }
+  .poster img{
+    height:220px;
+  }
 
-    .section{
-        padding:25px 4%;
-    }
+  .section{
+    padding:28px 4%;
+  }
 }
 </style>
 </head>
 
-
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
+
+  <div class="topbar">
 
     <div class="logo">CineMax</div>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#movies">Movies</a>
-        <a href="#drama">Drama</a>
-        <a href="#anime">Anime</a>
+      <a href="#home">Home</a>
+      <a href="#movies">Movies</a>
+      <a href="#drama">Drama</a>
+      <a href="#anime">Anime</a>
     </nav>
 
     <div class="search">
-        <input
-            id="searchInput"
-            type="search"
-            placeholder="Search movies..."
-            onkeyup="searchContent()"
-        >
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search movies..."
+        oninput="searchContent()"
+      >
     </div>
+
+  </div>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
-    <div class="hero-content">
+  <div class="hero-content">
 
-        <h1>CineMax</h1>
+    <span class="badge">CINEMAX ORIGINAL</span>
 
-        <p>
-            Watch licensed movies, drama, anime and
-            web series in one place.
-        </p>
+    <h1>Unlimited Entertainment</h1>
 
-        <button
-            class="btn watch"
-            onclick="openPlayer('Featured Content')"
-        >
-            ▶ Watch Now
-        </button>
+    <p>
+      Discover licensed movies, drama, anime and web
+      series — all in one place.
+    </p>
 
-        <button
-            class="btn info"
-            onclick="showInfo()"
-        >
-            ⓘ More Info
-        </button>
+    <button class="btn watch"
+      onclick="openPlayer('Featured Content')">
+      ▶ Watch Now
+    </button>
 
-    </div>
+    <button class="btn info"
+      onclick="showAbout()">
+      ⓘ More Info
+    </button>
+
+  </div>
 
 </section>
 
 
-<!-- ================= MOVIES ================= -->
+<!-- MOVIES -->
 
 <section class="section" id="movies">
 
+  <div class="section-title">
     <h2>🍿 Movies</h2>
+    <span class="count" id="movieCount"></span>
+  </div>
 
-    <div class="grid">
+  <div class="filters">
 
-        <div class="card content"
-             data-title="CineMax Movie">
+    <button class="filter active"
+      onclick="filterCategory('all',this)">
+      All
+    </button>
 
-            <img
-                src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80"
-                alt="Movie"
-            >
+    <button class="filter"
+      onclick="filterCategory('movie',this)">
+      Movies
+    </button>
 
-            <div class="card-info">
+    <button class="filter"
+      onclick="filterCategory('drama',this)">
+      Drama
+    </button>
 
-                <div class="title">
-                    CineMax Movie
-                </div>
+    <button class="filter"
+      onclick="filterCategory('anime',this)">
+      Anime
+    </button>
 
-                <div class="meta">
-                    Movie • 2026
-                </div>
+  </div>
 
-                <button
-                    onclick="openPlayer('CineMax Movie')"
-                >
-                    ▶ Watch
-                </button>
 
-            </div>
+  <div class="grid" id="contentGrid">
+
+
+    <!-- MOVIE 1 -->
+
+    <div class="card content"
+      data-title="CineMax Movie"
+      data-category="movie">
+
+      <div class="poster">
+
+        <img
+          src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=85"
+          alt="CineMax Movie">
+
+        <span class="year">2026</span>
+
+      </div>
+
+      <div class="card-info">
+
+        <div class="title">
+          CineMax Movie
+        </div>
+
+        <div class="meta">
+          🎬 Movie • ⭐ 8.5
+        </div>
+
+        <div class="card-buttons">
+
+          <button class="play"
+            onclick="openPlayer('CineMax Movie')">
+            ▶ Watch
+          </button>
+
+          <button class="details"
+            onclick="showDetails('CineMax Movie','A licensed movie available on CineMax.')">
+            Info
+          </button>
 
         </div>
 
-
-        <div class="card content"
-             data-title="Adventure Movie">
-
-            <img
-                src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=600&q=80"
-                alt="Adventure Movie"
-            >
-
-            <div class="card-info">
-
-                <div class="title">
-                    Adventure Movie
-                </div>
-
-                <div class="meta">
-                    Movie • 2026
-                </div>
-
-                <button
-                    onclick="openPlayer('Adventure Movie')"
-                >
-                    ▶ Watch
-                </button>
-
-            </div>
-
-        </div>
+      </div>
 
     </div>
+
+
+    <!-- MOVIE 2 -->
+
+    <div class="card content"
+      data-title="Adventure Movie"
+      data-category="movie">
+
+      <div class="poster">
+
+        <img
+          src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=600&q=85"
+          alt="Adventure Movie">
+
+        <span class="year">2026</span>
+
+      </div>
+
+      <div class="card-info">
+
+        <div class="title">
+          Adventure Movie
+        </div>
+
+        <div class="meta">
+          🎬 Movie • ⭐ 8.2
+        </div>
+
+        <div class="card-buttons">
+
+          <button class="play"
+            onclick="openPlayer('Adventure Movie')">
+            ▶ Watch
+          </button>
+
+          <button class="details"
+            onclick="showDetails('Adventure Movie','A licensed adventure movie.')">
+            Info
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- DRAMA -->
+
+    <div class="card content"
+      data-title="CineMax Drama"
+      data-category="drama">
+
+      <div class="poster">
+
+        <img
+          src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=600&q=85"
+          alt="Drama">
+
+        <span class="year">2026</span>
+
+      </div>
+
+      <div class="card-info">
+
+        <div class="title">
+          CineMax Drama
+        </div>
+
+        <div class="meta">
+          🎭 Drama • EP 01
+        </div>
+
+        <div class="card-buttons">
+
+          <button class="play"
+            onclick="openPlayer('CineMax Drama - Episode 01')">
+            ▶ Watch
+          </button>
+
+          <button class="details"
+            onclick="showDetails('CineMax Drama','Drama Episode 01.')">
+            Info
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ANIME -->
+
+    <div class="card content"
+      data-title="CineMax Anime"
+      data-category="anime">
+
+      <div class="poster">
+
+        <img
+          src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=85"
+          alt="Anime">
+
+        <span class="year">2026</span>
+
+      </div>
+
+      <div class="card-info">
+
+        <div class="title">
+          CineMax Anime
+        </div>
+
+        <div class="meta">
+          🍥 Anime • EP 01
+        </div>
+
+        <div class="card-buttons">
+
+          <button class="play"
+            onclick="openPlayer('CineMax Anime - Episode 01')">
+            ▶ Watch
+          </button>
+
+          <button class="details"
+            onclick="showDetails('CineMax Anime','Anime Episode 01.')">
+            Info
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="empty" id="empty">
+    😔 No content found.
+  </div>
 
 </section>
 
 
-<!-- ================= DRAMA ================= -->
+<!-- PLAYER MODAL -->
 
-<section class="section" id="drama">
+<div class="modal" id="playerModal">
 
-    <h2>🎭 Drama</h2>
+  <div class="modal-box">
 
-    <div class="grid">
+    <span class="close"
+      onclick="closeModal('playerModal')">
+      ✕
+    </span>
 
-        <div class="card content"
-             data-title="CineMax Drama">
+    <h2 id="playerTitle">
+      CineMax Player
+    </h2>
 
-            <img
-                src="https://images.unsplash.com/photo-1517604931442-
+    <video controls>
+
+      <!--
+      IMPORTANT:
+      Replace the URL below with your
+      OWN LICENSED video URL.
+      -->
+
+      <source
+        src="YOUR_LICENSED_VIDEO_URL.mp4"
+        type="video/mp4">
+
+      Your browser does not support video.
+
+    </video>
+
+    <p style="margin-top:15px;">
+      CineMax uses licensed and authorized content only.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- DETAILS MODAL -->
+
+<div class="modal" id="detailsModal">
+
+  <div class="modal-box">
+
+    <span class="close"
+      onclick="closeModal('detailsModal')">
+      ✕
+    </span>
+
+    <h2 id="detailsTitle">
+      Details
+    </h2>
+
+    <p id="detailsText">
+      Content information.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-logo">
+    CineMax
+  </div>
+
+  <p>
+    Movies • Drama • Anime • Entertainment
+  </p>
+
+  <br>
+
+  <p>
+    © 2026 CineMax. All Rights Reserved.
+  </p>
+
+  <br>
+
+  <p>
+    Licensed Content Only.
+  </p>
+
+</footer>
+
+
+<script>
+
+/* PLAYER */
+
+function openPlayer(title){
+
+  document.getElementById("playerTitle")
+    .innerText = title;
+
+  document.getElementById("playerModal")
+    .style.display = "block";
+}
+
+
+/* DETAILS */
+
+function showDetails(title,text){
+
+  document.getElementById("detailsTitle")
+    .innerText = title;
+
+  document.getElementById("detailsText")
+    .innerText = text;
+
+  document.getElementById("detailsModal")
+    .style.display = "block";
+}
+
+
+/* ABOUT */
+
+function showAbout(){
+
+  alert(
+    "Welcome to CineMax! Browse licensed movies, drama, anime and web series."
+  );
+
+}
+
+
+/* CLOSE MODAL */
+
+function closeModal(id){
+
+  document.getElementById(id)
+    .style.display = "none";
+}
+
+
+/* SEARCH */
+
+function searchContent(){
+
+  const search =
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+  const cards =
+    document.querySelectorAll(".content");
+
+  let found = 0;
+
+  cards.forEach(function(card){
+
+    const title =
+      card.dataset.title.toLowerCase();
+
+    if(title.includes(search)){
+
+      card.style.display = "block";
+      found++;
+
+    }else{
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+  document.getElementById("empty")
+    .style.display =
+      found === 0 ? "block" : "none";
+
+}
+
+
+/* CATEGORY */
+
+function filterCategory(category,button){
+
+  const cards =
+    document.querySelectorAll(".content");
+
+  document
+    .querySelectorAll(".filter")
+    .forEach(function(btn){
+      btn.classList.remove("active");
+    });
+
+  button.classList.add("active");
+
+  let found = 0;
+
+  cards.forEach(function(card){
+
+    if(
+      category === "all" ||
+      card.dataset.category === category
+    ){
+
+      card.style.display = "block";
+      found++;
+
+    }else{
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+  document.getElementById("empty")
+    .style.display =
+      found === 0 ? "block" : "none";
+
+}
+
+
+/* CLOSE WHEN CLICK OUTSIDE */
+
+window.onclick = function(event){
+
+  if(event.target.classList.contains("modal")){
+
+    event.target.style.display = "none";
+
+  }
+
+}
+
+
+/* MOVIE COUNT */
+
+document.getElementById("movieCount")
+  .innerText =
+  document.querySelectorAll(".content").length
+  + " titles";
+
+</script>
+
+</body>
+</html>
